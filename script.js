@@ -5,9 +5,9 @@ const viewsOutput = document.querySelector(".views");
 const calendar = document.querySelector(".calendar");
 
 const priceOutput = document.querySelector(".amount");
-const checkbox = document.querySelector("#discount");
+const toggle = document.querySelector("#toggle");
 
-const values = [
+const views = [
   "10K PAGEVIEWS",
   "50K PAGEVIEWS",
   "100K PAGEVIEWS",
@@ -17,7 +17,7 @@ const values = [
 const prices = [8, 12, 16, 24, 36];
 
 function checkDiscount(price) {
-  if (checkbox.checked) {
+  if (toggle.checked) {
     calendar.textContent = "per year";
     return price * 0.75 * 12;
   } else {
@@ -32,7 +32,7 @@ function setPrice(output, price) {
 }
 
 slider.addEventListener("input", (e) => {
-  viewsOutput.textContent = values[e.target.value];
+  viewsOutput.textContent = views[e.target.value];
 
   if (e.target.value == 4) {
     setPrice(priceOutput, prices[slider.value]);
@@ -47,6 +47,6 @@ slider.addEventListener("input", (e) => {
   }
 });
 
-checkbox.addEventListener("click", () => {
+toggle.addEventListener("click", () => {
   setPrice(priceOutput, prices[slider.value]);
 });
