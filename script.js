@@ -26,12 +26,11 @@ function checkDiscount(price) {
 }
 
 function setPrice(output, price) {
-  let newPrice = checkDiscount(price);
-  output.textContent = `$${newPrice}.00`;
+  output.textContent = `$${checkDiscount(price)}.00`;
 }
 
-slider.addEventListener("input", (e) => {
-  viewsOutput.textContent = views[e.target.value];
+slider.addEventListener("input", () => {
+  viewsOutput.textContent = views[slider.value];
   setPrice(priceOutput, prices[slider.value]);
 });
 
