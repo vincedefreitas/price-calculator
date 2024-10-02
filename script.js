@@ -33,9 +33,7 @@ function setPrice(output, price) {
 
 slider.addEventListener("input", (e) => {
   viewsOutput.textContent = values[e.target.value];
-});
 
-slider.addEventListener("input", (e) => {
   if (e.target.value == 4) {
     setPrice(priceOutput, prices[slider.value]);
   } else if (e.target.value == 3) {
