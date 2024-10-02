@@ -4,7 +4,7 @@ const slider = document.querySelector("#pageviews");
 const viewsOutput = document.querySelector(".views");
 const calendar = document.querySelector(".calendar");
 
-const priceOutput = document.querySelector(".dollar");
+const priceOutput = document.querySelector(".amount");
 const checkbox = document.querySelector("#discount");
 
 const values = [
