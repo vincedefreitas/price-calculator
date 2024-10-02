@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <p class="views">100000</p>
-      <p class="price">$24.00 per month</p>
+    <div class="heading">
+      <h1>Simple, Traffic Based Pricing</h1>
+      <p>Sign up to our 30 day free trial.</p>
     </div>
-    <form>
-      <input
-        type="range"
-        id="pageviews"
-        name="pageviews"
-        list="values"
-        min="0"
-        value="2"
-        max="4"
-        step="1"
-      />
-      <input type="checkbox" id="discount" />
-    </form>
+    <div class="container">
+      <div class="output">
+        <p class="views">100K PAGEVIEWS</p>
+        <p class="price">
+          <span class="dollar">$16.00</span>
+          <span class="calendar">per month</span>
+        </p>
+      </div>
+      <div class="form-container">
+        <form>
+          <input
+            type="range"
+            id="pageviews"
+            name="pageviews"
+            list="values"
+            min="0"
+            value="2"
+            max="4"
+            step="1"
+          />
+          <input type="checkbox" id="discount" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

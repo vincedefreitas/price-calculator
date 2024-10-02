@@ -2,39 +2,53 @@
 
 const slider = document.querySelector("#pageviews");
 const viewsOutput = document.querySelector(".views");
+const calendar = document.querySelector(".calendar");
 
-const price = document.querySelector(".price");
-const discount = document.querySelector("#discount");
+const priceOutput = document.querySelector(".dollar");
+const checkbox = document.querySelector("#discount");
 
-const values = [10000, 50000, 100000, 500000, 1000000];
+const values = [
+  "10K PAGEVIEWS",
+  "50K PAGEVIEWS",
+  "100K PAGEVIEWS",
+  "500K PAGEVIEWS",
+  "1M PAGEVIEWS",
+];
+const prices = [8, 12, 16, 24, 36];
 
-console.log(slider.value);
+function checkDiscount(price) {
+  if (checkbox.checked) {
+    calendar.textContent = "per year";
+    return price * 0.75 * 12;
+  } else {
+    calendar.textContent = "per month";
+    return price;
+  }
+}
+
+function setPrice(output, price) {
+  let newPrice = checkDiscount(price);
+  output.textContent = `$${newPrice}.00`;
+}
 
 slider.addEventListener("input", (e) => {
   viewsOutput.textContent = values[e.target.value];
-  console.log(slider.value);
 });
-
-console.log(slider);
-
-// slider.oninput();
 
 slider.addEventListener("input", (e) => {
   if (e.target.value == 4) {
-    price.textContent = "$36.00 per month";
-  } else if (e.target.value > 3) {
-    price.textContent = "$24.00 per month";
-  } else if (e.target.value > 2) {
-    price.textContent = "$16.00 per month";
-  } else if (e.target.value > 1) {
-    price.textContent = "$12.00 per month";
+    setPrice(priceOutput, prices[slider.value]);
+  } else if (e.target.value == 3) {
+    setPrice(priceOutput, prices[slider.value]);
+  } else if (e.target.value == 2) {
+    setPrice(priceOutput, prices[slider.value]);
+  } else if (e.target.value == 1) {
+    setPrice(priceOutput, prices[slider.value]);
   } else {
-    price.textContent = "$8.00 per month";
+    setPrice(priceOutput, prices[slider.value]);
   }
 });
 
-discount.addEventListener("click", (e) => {
-  if (discount.checked) {
-    alert("Hello!");
-  }
+checkbox.addEventListener("click", () => {
+  setPrice(priceOutput, prices[slider.value]);
 });
